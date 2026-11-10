@@ -1,0 +1,3 @@
+include main.py .env.example
+recursive-include examples *.py
+recursive-include tests *.py

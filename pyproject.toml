@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streaming-tts"
+version = "0.1.0"
+description = "Independent asynchronous streaming TTS library"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+qwen = ["websockets>=16,<18"]
+websocket = ["websockets>=16,<18"]
+dev = ["pytest>=8", "ruff>=0.11", "build>=1", "websockets>=16,<18"]
+
+[tool.setuptools]
+package-dir = {"streaming_tts" = "src"}
+packages = ["streaming_tts", "streaming_tts.providers", "streaming_tts.integrations", "streaming_tts.text_processing"]
+
+[tool.setuptools.package-data]
+"streaming_tts" = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
